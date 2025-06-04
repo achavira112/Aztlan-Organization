@@ -1,41 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Aztlan Organization</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Aztlan Organization</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #e0f7fa; /* light aqua/sky */
-      color: #004d40;
-      font-family: Arial, sans-serif;
-    }
+  font-family: 'Poppins', sans-serif;
+  background-color: #e0f7fa;
+  color: #004d40;
+  scroll-behavior: smooth;
+}
+
     nav {
-      background-color: #4db6ac; /* aqua green */
-      padding: 15px;
+      background-color: #4db6ac;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
     }
-    nav a {
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      font-family: 'Georgia', serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
     }
+
     header {
+      background-color: #b2ebf2;
+      padding: 60px 20px;
       text-align: center;
-      margin-top: 40px;
     }
-  </style>
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #00695c;
+    }
+
+    section {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    section h2 {
+      font-size: 28px;
+      color: #004d40;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta {
+      background-color: #e0f7fa;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .cta h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons a {
+      background-color: #4db6ac;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .cta-buttons a:hover {
+      background-color: #009688;
+    }
+
+    .newsletter {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background-color: #4db6ac;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #009688;
+    }
+
+    .social {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .social h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      font-size: 20px;
+      color: #004d40;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  .animated-title {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00332e;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInTitle 3.5s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
+
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Teams</a>
-    <a href="#">Projects</a>
-    <a href="#">About Us</a>
+    <div class="logo">The Aztlan Organization</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Teams</a>
+      <a href="#">Projects</a>
+      <a href="#">About Us</a>
+    </div>
   </nav>
-  <header>
-    <h1>Welcome to The Aztlan Organization</h1>
-    <p>Developing affordable housing for the future.</p>
-  </header>
+
+  <header style="background-color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center;">
+  <img src="https://images.unsplash.com/photo-1586880244406-5567f57907c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Affordable Housing Community" style="width: 200px; height: auto; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 15px rgba(0,0,0,0.15);">
+  <h1 class="animated-title">Welcome to<br>The Aztlan Organization</h1>
+  <p style="max-width: 600px; text-align: center; margin-top: 10px; font-size: 18px; color: #00695c;">Reimagining affordable housing with vision, equity, and impact.</p>
+</header>
+
+  
+
+    
+
+    
+
+    
+
+  
+  </section>
+
+  <section class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 20px;">
+  <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #004d40;">Our Mission</h3>
+    <p style="font-size: 14px; line-height: 1.5; color: #555;">The Aztlan Organization is a BIPOC-led real estate development firm focused on building deeply affordable housing throughout California. We blend catalytic capital with community vision to create sustainable, long-term housing solutions.</p>
+  </div>
+  <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #004d40;">Our Vision</h3>
+    <p style="font-size: 14px; line-height: 1.5; color: #555;">We envision a future where every working family, veteran, and unhoused person has access to dignified, lasting housing—free from red tape and built on justice.</p>
+  </div>
+  <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #004d40;">Our Core Values</h3>
+    <p style="font-size: 14px; line-height: 1.5; color: #555;"><strong>Equity.</strong> <strong>Urgency.</strong> <strong>Accountability.</strong><br>We don't wait for change—we build it. Our commitment to affordability, sustainability, and community voice drives every decision.</p>
+  </div>
+  <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #004d40;">What Makes Us Different</h3>
+    <p style="font-size: 14px; line-height: 1.5; color: #555;">While many developers rely on slow-moving tax credits, we innovate with flexible capital, community-first design, and long-term ownership—proving deeply affordable housing can be done without compromise.</p>
+  </div>
+</section>
+
+<section class="reveal" style="padding: 50px 20px; background-color: #ffffff; text-align: center;">
+  <h2 style="color: #004d40; font-size: 26px; margin-bottom: 20px;">Our Dual-Track Model</h2>
+  <p style="font-size: 16px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #555;">
+    The Aztlan Organization operates with a dual-track strategy. While we are early in our journey and do not yet have completed projects to showcase, we are actively building a portfolio across both government-backed and non-governmental affordable housing. This dual approach allows us to remain nimble, scale faster, and deliver housing for families, veterans, and underserved communities.
+  </p>
+</section>
+
+<section class="reveal" style="display: flex; flex-direction: column; gap: 60px; padding: 60px 20px;">
+  <a href="#" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); max-width: 900px; margin: 0 auto; transition: transform 0.3s ease;">
+        <h3 style="margin-top: 20px; color: #004d40; font-size: 22px;">Camino del Sol</h3>
+    <p style="font-size: 15px; line-height: 1.6; color: #333;">Camino del Sol is a 96-unit affordable housing project located in San Ysidro, designed for families and veterans. The site includes both a supportive services center integrated within the housing and a separate Center of Anthropology, offering cultural and educational programming for the surrounding community.</p>
+  </div>
+</a>
+  <a href="#" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); max-width: 900px; margin: 0 auto; transition: transform 0.3s ease;">
+        <h3 style="margin-top: 20px; color: #004d40; font-size: 22px;">National City Project</h3>
+    <p style="font-size: 15px; line-height: 1.6; color: #333;">An urban infill redevelopment vision that blends retail with 100% affordable housing, designed for long-term impact in the South Bay.</p>
+  </div>
+</a>
+</section>
+
+<div class="cta reveal"><h2>Take the Next Step</h2>
+    <div class="cta-buttons">
+      <a href="#">See Our Projects</a>
+      <a href="#">Partner With Us</a>
+    </div>
+  </div>
+
+  <div class="newsletter reveal">
+    <h2>Stay Connected</h2>
+    <input type="email" placeholder="Enter your email" />
+    <button>Subscribe</button>
+  </div>
+
+  <div class="social reveal">
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 The Aztlan Organization — All rights reserved.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+  });
+</script>
 </body>
 </html>
